@@ -1,0 +1,45 @@
+class Computer:
+    def __init__(self,serial_number, manufacturer, model, processor, ram, display_size):
+        self.serial_number = serial_number
+        self.manufacturer = manufacturer
+        self.model = model
+        self.processor = processor
+        self.ram = ram
+        self.display_size = display_size
+
+    def print_info(self):
+        print("Serial Number:", self.serial_number)
+        print("Manufacturer:", self.manufacturer)
+        print("Model:", self.model)
+        print("Processor:", self.processor)
+        print("RAM:", self.ram)
+        print("Display:", self.display_size)
+
+
+
+class Laptop(Computer):
+        def __init__(self, serial_number, manufacturer, model, processor, ram, display_size, weight, is_touch_screen):
+            Computer.__init__(self, serial_number, manufacturer, model, processor, ram, display_size,)
+            self.weight = weight
+            self.is_touch_screen = is_touch_screen
+        def print_info(self):
+            print("Laptop Info:")
+            Computer.print_info(self)
+            print("Weight:", self.weight)
+            print("Touch-screen:", self.is_touch_screen)
+
+class Desktop(Computer):
+    def __init__(self, serial_number, manufacturer, model, processor, ram, display_size, type):
+        Computer.__init__(self, serial_number, manufacturer, model, processor, ram, display_size)
+        self.type = type
+    def print_info(self):
+        print("Desktop Info:")
+        Computer.print_info(self)
+        print("Type:", self.type)
+
+laptop1 = Laptop("A001", "Apple", "MacBook Air", "Apple M1", "16GB", "13.3\"", "2.7 lbs", False)
+desktop1 = Desktop("A002", "Dell", "Inspiron", "core i7", "32GB", "27\"", "All-in-One")
+laptop1.print_info()
+print()
+desktop1.print_info()
+
